@@ -9,21 +9,15 @@
   </style>
 </head>
 <body>
-  <div id="demo"></div>
-
   <script type="module">
-    import { html, render } from 'lit-html';
     import '../intera-img.js';
-
-    const title = 'Hello owc World!';
-    render(
-      html`
-        <intera-img .title=${title}>
-          some more light-dom
-        </intera-img>
-      `,
-      document.querySelector('#demo')
-    );
   </script>
+  
+  <intera-img
+    source="https://www.dogsforgood.org/app/uploads/2019/06/Georgie-web.jpg"
+    title='This is the picture.'
+    caption='This is the caption.'
+    credit='Penn State probably did this.'>
+  </intera-img>
 </body>
 </html>

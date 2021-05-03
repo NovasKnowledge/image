@@ -9,109 +9,68 @@ export class InteraImg extends LitElement {
         color: var(--intera-img-text-color, #000);
       }
 
-      .img-title{
-        font-family:georgia,garamond,serif;
-        font-size:20px;
-        font-style:bold;
-        //text-align: center;
+      .img-title {
+        font-family: georgia, garamond, serif;
+        font-size: 20px;
+        font-style: bold;
+        text-align: center;
         border-style: solid;
         border-color: grey;
         background-color: LightGray;
-        width= 200px;
-        height = 200px;
+        width: var(--intra-img-width, 250px);
+        margin: 0 auto;
       }
 
-      .border{
+      .border {
         border-style: solid;
         border-color: black;
-        width= 350px;
-        height = 200px;
-        
+        width: var(--intra-img-width, 250px);
+        display: block;
+        margin: 0 auto;
       }
-
-      .img-credit{
-        font-family:georgia,garamond,serif;
-        font-size:15px;
-        font-style:bold;
-        margin: 10px;
+      .img-credit {
+        font-family: georgia, garamond, serif;
+        font-size: 15px;
+        font-style: bold;
         border-style: solid;
+        margin: 0 auto;
         border-color: grey;
         background-color: LightGray;
+        width: var(--intra-img-width, 250px);
       }
-
-      .para{
-        text-align:center;
+      .para {
+        text-align: center;
       }
-
-
-      
     `;
-
-
-
-    
   }
 
   static get properties() {
     return {
+      source: { type: String },
       title: { type: String },
-      caption: {type: String},
+      caption: { type: String },
+      credit: { type: String },
+      border: { type: String },
+      alt: { type: String },
     };
   }
 
-  
-
   constructor() {
     super();
-    this.source = "https://www.dogsforgood.org/app/uploads/2019/06/Georgie-web.jpg";
-    this.titles = 'This is the picture.'
-    this.caption = 'This is the caption.'
-    this.credit = 'Penn State probably did this.'
-    this.border ='';
+    this.source = '';
+    this.title = '';
+    this.caption = '';
+    this.credit = '';
     this.alt = '';
-    //this.background = color;
   }
-
 
   render() {
-    return html`
-
-      <img 
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-        class= "border"
-        width= "350px" 
-        height = "200px" 
-        src = ${this.source}
-        alt = ${this.alt}
-      />
-
-   
-
-    <div class = "img-title">
-        ${this.titles}
-        <br>
+    return html` <img class="border" src="${this.source}" alt="${this.alt}" />
+      <div class="img-title">
+        ${this.title}
+        <br />
         ${this.caption}
-        </div>
-        
-
-    <div class = "img-credit">
-      ${this.credit}
-      ${this.border}
-     
-    </div>
-
-
-    
-        
-    `;
+      </div>
+      <div class="img-credit">${this.credit}</div>`;
   }
-
-
-  
 }
-
-
-
-  
